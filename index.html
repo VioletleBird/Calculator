@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;600;700&display=swap" rel="stylesheet">
+        <title>Calculator</title>
+    </head>
+
+    <body class="theme-001" id="bodyAll">
+
+        <main class="theme-2-all main">
+
+            <div class="header">
+                <span>Calculator</span>
+                <div class="theme theme1">
+                    <div class="this">
+                        <span>theme</span>
+                    </div>
+
+                    <div class="toggle-container">
+                        <div class="themes-number">
+                            <span>dark</span>
+                            <span>light</span>
+                        </div>
+                            <label class="toggle">
+                                <input id="toggle-switch" type="checkbox">
+                                <span class="round-button"></span>
+                            </label>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-show theme-2-body-screen">
+                <div class="theme-2-body-screen symbol" id="symbol"></div>
+                <div class="result theme-2-body-screen result">
+                    <span class="display"></span>
+                </div>
+            </div>
+
+            <div class="buttons theme-2-body-main buttons-all">
+                <div class="first-line line" id="line01">
+                    <button onclick="" class="btn theme-2-keys-back">7</button>
+                    <button onclick="" class="btn theme-2-keys-back">8</button>
+                    <button onclick="" class="btn theme-2-keys-back">9</button>
+                    <button onclick="" class="btns btn-del theme-2-keys-reset-back btn-del-res">del</button>
+                </div>
+                <div  class="second-line line" id="line02">
+                    <button onclick="" class="btn theme-2-keys-back">4</button>
+                    <button onclick="" class="btn theme-2-keys-back">5</button>
+                    <button onclick="" class="btn theme-2-keys-back">6</button>
+                    <button onclick="" class="btn theme-2-keys-back">+</button>
+                </div>
+                <div class="third-line line" id="line03">
+                    <button onclick="" class="btn theme-2-keys-back">1</button>
+                    <button onclick="" class="btn theme-2-keys-back">2</button>
+                    <button onclick="" class="btn theme-2-keys-back">3</button>
+                    <button onclick="" class="btn theme-2-keys-back">-</button>
+                </div>
+                <div class="fourth-line line" id="line04">
+                    <button onclick="" class="btn theme-2-keys-back">.</button>
+                    <button onclick="" class="btn theme-2-keys-back">0</button>
+                    <button onclick="" class="btn theme-2-keys-back">/</button>
+                    <button onclick="" class="btn theme-2-keys-back">*</button>
+                </div>
+                <div class="fifth-line line" id="line05">
+                    <button onclick="" class="btns bigger theme-2-keys-reset-back btn-del-res">reset</button>
+                    <button onclick="" class="btns bigger theme-2-keys-bold-back key-bold">=</button>
+                </div>
+            </div>
+
+        </main>
+        
+        <script src="changeTheme.js"></script>
+    </body>
+
+</html>

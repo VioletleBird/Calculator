@@ -1,0 +1,411 @@
+:root {
+    --bg-color: #ccc;
+    --white: #ffffff;
+    
+    --trans: 0.4s;
+
+    --dark-bg-first: #976995;
+    --dark-bg-second: #e7ded5;
+    --dark-calc-body: #3a4764;
+    --dark-calc-part: #232c43;
+    --dark-calc-button: #eae3dc;
+    --dark-calc-button-font: #444b5a;
+    --dark-calc-button-bold: #c7237d;
+    --dark-calc-button-bold-shadow: #7a143f;
+    --dark-calc-button-bold-hover: #e666b5;
+    --dark-calc-button-del-res: #637097;
+    --dark-calc-button-del-res-shadow: #404e72;
+    --dark-calc-button-del-res-hover: #9fa8c1;
+
+    --light-bg-first: #e6cce2;
+    --light-bg-second: #abb5ca;
+    --light-calc-body: #faf5f0;
+    --light-calc-part: #ddd5cd;
+    --light-calc-button: #f8f5f0;
+    --light-calc-button-shadow: #cfc9c3;
+    --light-calc-button-font: #444b5a;
+    --light-calc-button-del-res: #377f86;
+    --light-calc-button-del-res-shadow: #1b5f65;
+    --light-calc-button-del-res-hover: #1b5f65;
+}
+
+* {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: var(--bg-color);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 240px;
+    border-radius: 25px;
+}
+
+.main {
+    height: 540px;
+    width: 320px;
+    border-radius: 10px;
+}
+
+.header {
+    display: flex;
+    height: 90px;
+    width: 265px;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--white);
+    text-transform: lowercase;
+}
+
+.header > span {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/*display*/
+
+.display {
+    padding-right: 10px;
+}
+
+
+.input-show {
+    width: 266px;
+    height: 80px;
+    border-radius: 10px ;
+    margin-bottom: 6px; 
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+}
+
+.input-show div {
+    border-radius: 10px;
+}
+
+/*toggle*/
+
+.this {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.themes-number {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    align-items: center;
+    text-align: center;
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+
+.toggle input {
+    display: none;
+}
+
+.round-button {
+    margin-left: auto;
+    margin-right: auto;
+    width: 61px;
+    background-color: var(--dark-calc-button-del-res);
+    display: block;
+    transition: all 0.3s;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.round-button:before {
+    content: "";
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    display: block;
+    left: 0.5rem;
+    bottom: 0.5rem;
+    background-color: var(--white);
+    transition: all 0.3s;
+}
+
+input:checked + .round-button:before {
+    transform: translate(2.6rem, 0);
+}
+
+/*
+*/
+
+.theme {
+    background-color: transparent;
+    width: 30%;
+    padding: 0;
+    margin: 0;
+}
+
+/*buttons*/
+
+.btn {
+    font-size: 1.3em;
+}
+
+.buttons-all {
+    padding: 18px;
+    border-radius: 15px;
+    margin-top: 15px;
+}
+
+.key-bold {
+    text-transform: uppercase;
+    font-size: 1.3em;
+    transition: 0.4s;
+}
+
+.btn-del-res {
+    text-transform: uppercase;
+    font-size: 1em
+}
+
+.line {
+    display: flex;
+}
+
+button {
+    height: 45px;
+    width: 45px;
+    margin: 6px;
+    border-radius: 7px;
+    border: none;
+}
+
+.bigger {
+    width: 102px;
+}
+
+.bigger:first-child {
+    margin-right: 6px;
+}
+
+
+/* theme dark */
+
+.theme-001 {
+    background: var(--dark-bg-second);
+    background: linear-gradient(0deg, var(--dark-bg-first) 13%, var(--dark-bg-second) 65%);
+}
+
+.theme-001 main {
+    background-color: var(--dark-calc-body);
+    overflow: hidden;
+    transition: var(--trans);
+}
+
+.theme-001 main .buttons {
+    background-color: var(--dark-calc-part);
+    transition: var(--trans);
+}
+
+.theme-001 main .input-show, .theme-001 main .input-show div {
+    background-color: var(--dark-calc-part);
+    transition: var(--trans);
+}
+
+.theme-001 main .buttons .line .btn {
+    background-color: var(--dark-calc-button);
+    box-shadow: 0px 2px 1px var(--dark-bg-second);
+    color: var(--dark-calc-button-font);
+    transition: var(--trans);
+}
+
+.theme-001 main .buttons .line .btn:hover {
+    background-color: var(--white);
+    transition: var(--trans);
+}
+
+.theme-001 main .buttons .line .key-bold {
+    background-color: var(--dark-calc-button-bold);
+    box-shadow: 0px 2px 1px var(--dark-calc-button-bold-shadow);
+    color: var(--white);
+}
+
+.theme-001 main .buttons .line .key-bold:hover {
+    background-color: var(--dark-calc-button-bold-hover);
+    transition: var(--trans);
+}
+
+.theme-001 main .buttons .line .btn-del-res {
+    background-color: var(--dark-calc-button-del-res);
+    box-shadow: 0px 3px 1px var(--dark-calc-button-del-res-shadow);
+    color: var(--white);
+    transition: var(--trans);
+}
+
+.theme-001 main .buttons .line .btn-del-res:hover {
+    background-color: var(--dark-calc-button-del-res-hover);
+    color: var(--white);
+    transition: var(--trans);
+}
+
+.theme-001 main .header {
+    color: var(--white);
+    transition: var(--trans);
+}
+
+/* theme light */
+
+.theme-002 {
+    background: var(--light-bg-second);
+    background: linear-gradient(0deg, var(--light-bg-first) 43%, var(--light-bg-second) 82%);
+}
+
+.theme-002 main {
+    background-color: var(--light-calc-body);
+}
+
+.theme-002 main .buttons {
+    background-color: var(--light-calc-part);
+}
+
+.theme-002 main .input-show, .theme-002 main .input-show div {
+    background-color: var(--white);
+}
+
+.theme-002 main .buttons .line .btn {
+    background-color: var(--light-calc-button);
+    box-shadow: 0px 4px 2px var(--light-calc-button-shadow);
+    transition: var(--trans);
+    color: var(--light-calc-button-font);
+}
+
+.theme-002 main .buttons .line .btn:hover {
+    background-color: var(--white);
+    transition: var(--trans);
+}
+
+.theme-002 main .buttons .line .key-bold {
+    background-color: var(--dark-calc-button-bold);
+    box-shadow: 0px 2px 1px var(--dark-calc-button-bold-shadow);
+    color: var(--white);
+}
+
+.theme-002 main .buttons .line .key-bold:hover {
+    background-color: var(--dark-calc-button-bold-hover);
+    transition: var(--trans);
+}
+
+.theme-002 main .buttons .line .btn-del-res {
+    background-color: var(--dark-calc-button-del-res);
+    box-shadow: 0px 3px 1px var(--dark-calc-button-del-res-shadow);
+    color: var(--white);
+    transition: var(--trans);
+}
+
+.theme-002 main .buttons .line .btn-del-res:hover {
+    background-color: var(--dark-calc-button-del-res-hover);
+    color: var(--white);
+    transition: var(--trans);
+}
+
+.theme-002 main .header {
+    color: var(--light-calc-button-font);
+    transition: var(--trans);
+}
+
+.theme-002 main .header .round-button:before {
+    content: "";
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    display: block;
+    left: 0.5rem;
+    bottom: 0.5rem;
+    background-color: var(--dark-calc-part);
+    transition: all 0.3s;
+}
+
+/*
+*/
+
+.symbol {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    padding-left: 10px;
+    font-size: 1em;
+    height: 100%;
+}
+
+.result {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    color: var(--white);
+    font-size: 0.9em;
+}
+
+@media screen and (min-width: 850px){
+    button {
+        width: 70px;
+    }
+
+    .header {
+        font-size: 1.3em;
+        padding-top: 10px;
+    }
+
+    .header > span {
+        margin-left: 10px;
+        font-size: 1.4em;
+    }
+
+    .btn {
+        font-size: 1.7em;
+    }
+
+    .bigger:first-child {
+        margin-right: 7px;
+    }
+
+    .bigger:nth-child(2) {
+        margin-left: 7px;
+    }
+
+    .bigger {
+        width: 151px;
+        font-size: 1.2em;
+    }
+
+    .btn-del {
+        font-size: 1.2em;
+    }
+
+    .input-show {
+        width: 366px;
+        height: 80px;
+        font-size: 2.3em;
+    }
+
+    .header {
+        width: 366px;
+    }
+
+    .main {
+        width: 410px;
+        height: 550px;
+    }
+}

@@ -90,6 +90,7 @@ main {
     display: flex;
     align-items: center;
     font-size: 1.5em;
+    padding-right: 10px;;
 }
 
 .input-show div {
@@ -263,6 +264,10 @@ button {
     transition: var(--trans);
 }
 
+.theme-001 #display {
+    color: var(--dark-calc-button);
+}
+
 /* theme light */
 
 .theme-002 {
@@ -333,6 +338,10 @@ button {
     bottom: 0.5rem;
     background-color: var(--dark-calc-part);
     transition: all 0.3s;
+}
+
+.theme-002 #display {
+    color: var(--light-calc-button-font);
 }
 
 /*

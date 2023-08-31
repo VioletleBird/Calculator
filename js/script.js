@@ -7,7 +7,7 @@ let secondNumber = '';
 let firstNumberDone = false;
 let symbol = '';
 let solved = false;
-
+let invalidState = false;
 
 function showNumber(n) {
     display.innerHTML = n;
@@ -18,6 +18,10 @@ function showSymbol(s) {
 }
 
 function callNumber(n) {
+    if (invalidState) {
+        return;
+    }
+    
     if (solved) {
         resetCalc();
     }
@@ -34,9 +38,27 @@ function callNumber(n) {
 }
 
 function operation(s) {
-    firstNumberDone = true;
-    symbol = s;
-    showSymbol(symbol);
+    if (invalidState) {
+        return;
+    }
+
+    if (solved) {
+        resetCalc();
+    }
+
+    if (firstNumber.length === 0 && s === '-') {
+        firstNumber = s;
+        showNumber(firstNumber);
+    }
+    else {
+        if (!validate(firstNumber)){
+            return;
+        }
+
+        firstNumberDone = true;
+        symbol = s;
+        showSymbol(symbol);
+    }
 } 
 
 function resetCalc() {
@@ -47,12 +69,42 @@ function resetCalc() {
     solved = false;
     display.innerHTML = '';
     displaySymbol.innerHTML = '';
+    invalidState = false;
+}
+
+function _del(num) {
+    if (num.length !== 0) {
+        num.slice(0, -1);
+    }
+    showNumber(num);
+}
+
+function del() {
+    if (invalidState) {
+        return;
+    }
+
+    if (firstNumberDone) {        
+        _del(secondNumber);
+    }
+    else {
+        _del(firstNumber);
+    }   
 }
 
 function solve() {
-    let result = 0;
+    if (invalidState) {
+        return;
+    }
+
+    if (validate(firstNumber) === false || validate(secondNumber) === false){
+        return;
+    }
+
     firstNumber = parseFloat(firstNumber);
     secondNumber = parseFloat(secondNumber);
+
+    let result = 0;
 
     switch (symbol) {
         case '+':
@@ -71,4 +123,13 @@ function solve() {
     result.toFixed(6);
     solved = true;
     showNumber(result);
+}
+
+function validate(num) {
+    if (isNaN(num)) {
+        showNumber('Put a valid number!');
+        invalidState = true;
+        return false;
+    }
+    return true;
 }

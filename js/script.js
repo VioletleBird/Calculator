@@ -1,8 +1,9 @@
 'use strict';
 
 const display = document.getElementById('display');
-let firstNumber = 0;
-let secondNumber = 0;
+const displaySymbol = document.getElementById('symbol');
+let firstNumber = '';
+let secondNumber = '';
 let firstNumberDone = false;
 let symbol = '';
 let solved = false;
@@ -12,17 +13,22 @@ function showNumber(n) {
     display.innerHTML = n;
 }
 
+function showSymbol(s) {
+    displaySymbol.innerHTML = s;
+}
+
 function callNumber(n) {
     if (solved) {
         resetCalc();
     }
     
     if (firstNumberDone) {
-        secondNumber = (secondNumber * 10) + n;
+        secondNumber = secondNumber + n;
         showNumber(secondNumber);
+        showSymbol('');
     }
     else {
-        firstNumber = (firstNumber * 10) + n;
+        firstNumber = firstNumber + n;
         showNumber(firstNumber);
     }
 }
@@ -30,19 +36,24 @@ function callNumber(n) {
 function operation(s) {
     firstNumberDone = true;
     symbol = s;
+    showSymbol(symbol);
 } 
 
 function resetCalc() {
-    firstNumber = 0;
-    secondNumber = 0;
+    firstNumber = '';
+    secondNumber = '';
     firstNumberDone = false;
-    display.innerHTML = '';
     symbol = '';
     solved = false;
+    display.innerHTML = '';
+    displaySymbol.innerHTML = '';
 }
 
 function solve() {
     let result = 0;
+    firstNumber = parseFloat(firstNumber);
+    secondNumber = parseFloat(secondNumber);
+
     switch (symbol) {
         case '+':
             result = firstNumber + secondNumber;
@@ -57,6 +68,7 @@ function solve() {
             result = firstNumber / secondNumber;
             break;
     }
+    result.toFixed(6);
     solved = true;
     showNumber(result);
 }
